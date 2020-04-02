@@ -54,12 +54,13 @@ add_custom_target(combined_custom
 add_library(combined STATIC IMPORTED GLOBAL)
 add_dependencies(combined combined_custom)
 
+message(STATUS ${PYTHON_LIBRARY})
 if (WIN32)
-  target_link_libraries(bls combined ${CMAKE_SOURCE_DIR}/libpython38.a})
+  target_link_libraries(bls combined ${CMAKE_SOURCE_DIR}/libpython38.a} ${PYTHON_LIBRARY})
 else()
   target_link_libraries(bls combined)
+
 endif()
-# target_link_libraries(bls ${CMAKE_SOURCE_DIR}/libpython.a)
 
 
 set_target_properties(combined
