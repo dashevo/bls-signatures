@@ -1,6 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1.0 FATAL_ERROR)
 set (CMAKE_CXX_STANDARD 11)
 
+# set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
 file(GLOB HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
 source_group("SrcHeaders" FILES ${HEADERS})
 
@@ -53,7 +54,13 @@ add_custom_target(combined_custom
 add_library(combined STATIC IMPORTED GLOBAL)
 add_dependencies(combined combined_custom)
 
-target_link_libraries(bls combined)
+if (WIN32)
+  target_link_libraries(bls combined ${CMAKE_SOURCE_DIR}/libpython38.a})
+else()
+  target_link_libraries(bls combined)
+endif()
+# target_link_libraries(bls ${CMAKE_SOURCE_DIR}/libpython.a)
+
 
 set_target_properties(combined
         PROPERTIES
