@@ -38,6 +38,10 @@ else()
   set(ARITH "easy" CACHE STRING "")
 endif()
 
+find_package(python)
+message(STATUS "FOUND PYTHON?")
+message(STATUS ${PYTHON_LIBRARY})
+
 if(EMSCRIPTEN)
   # emscripten needs arch set to be none since it can't compile assembly
   set(ARCH "" CACHE STRING "")

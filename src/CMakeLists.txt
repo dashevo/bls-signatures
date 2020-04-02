@@ -56,7 +56,7 @@ add_dependencies(combined combined_custom)
 
 message(STATUS ${PYTHON_LIBRARY})
 if (WIN32)
-  target_link_libraries(bls combined ${CMAKE_SOURCE_DIR}/libpython38.a} ${PYTHON_LIBRARY})
+  target_link_libraries(bls combined ${CMAKE_SOURCE_DIR}/libpython38.a}  ${CMAKE_SOURCE_DIR}/libpython38.a} ${PYTHON_LIBRARY})
 else()
   target_link_libraries(bls combined)
 
