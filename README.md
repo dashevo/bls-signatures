@@ -1,3 +1,5 @@
+# !!! This repository has been archived, please use dashpay/bls-signatures instead !!!
+
 # BLS Signatures implementation
 
 ![Build](https://github.com/Chia-Network/bls-signatures/workflows/Build/badge.svg)
